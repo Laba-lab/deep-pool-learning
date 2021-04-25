@@ -9,8 +9,8 @@ Deep Pool Learning
 ## Summary
 
 “Deep Pool Learning” is Life & Energy saving embedded system, based on AI/DeepLearning computer science methods for public pools, private pools and beyond.
-Two separate Neural Network based programms are running in real time. With first, photos of the pool ledges are taken and processed to calculate the count of pool users and to finally obtain the output that will be used for cross-check with second programm, to signal the alarm, and to operate pool filtration equipement accordingly.
-Second program is processing photos of total pool area and calculating its own count that will be cross-check with first programm, and directly used to recognise potential drowning that will trigger another/different alarm.
+Two separate Neural Network based programms are running in real time. With first, photos of the pool ledges are taken and processed to calculate the count of pool users and to finally obtain the output that will be used for cross-check with second program, to signal the alarm, and to operate pool filtration equipement accordingly.
+Second program is processing photos of total pool area and calculating its own count that will be cross-check with first program, and directly used to recognise potential drowning that will trigger another/different set of alarms.
 
 
 
