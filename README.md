@@ -16,14 +16,18 @@ Second program is processing photos of total pool area and calculating its own c
 
 ## Background
 
-This is 24 hours running standalone system that can be installed on any pool in the world, providing safe and relaxed environment for all users, and in the same guarantying energy saving and healthier pools.
+This is 24 hours running standalone system that can be installed on any pool in the world, providing safe and relaxed environment for all users, and in the same time save energy and make healthier pools.
 
-Which problems does your idea solve? How common or frequent is this problem? What is your personal motivation? Why is this topic important or interesting?
-
-This is how you make a list, if you need one:
-* problem 1
-* problem 2
-* etc.
+Deep Pool Learning system is used to:
+* Save lives
+* Save energy 
+* Save filtration and heating equpment
+* Reduce pool treatment chemicals consumption
+* Provide healthier pools
+* Provide relaxed environment
+* Reduce manning
+* Promote AI based technologies
+* Promote Green future solutions 
 
 
 ## How is it used?
