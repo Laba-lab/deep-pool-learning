@@ -39,7 +39,7 @@ Describe the process of using the solution. In what kind situations is the solut
 Images will make your README look nice!
 Once you upload an image to your repository, you can link link to it like this (replace the URL with file path, if you've uploaded an image to Github.)
 ![Pool](https://www.wowamazing.com/wp-content/uploads/2015/08/ce95100000000000.jpg)
-
+<img src="https://www.wowamazing.com/wp-content/uploads/2015/08/ce95100000000000.jpg" width="300">
 
 This is how you create code examples:
 ```
