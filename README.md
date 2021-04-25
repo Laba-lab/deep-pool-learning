@@ -1,10 +1,11 @@
 # deep-pool-learning
-Life & Energy saving AI based system for swimming pools
 
+Life & Energy saving AI based system for swimming pools
 
 # Project Title
 
 Deep Pool Learning
+Building AI course project
 
 ## Summary
 
