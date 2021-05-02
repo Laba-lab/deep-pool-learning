@@ -1,15 +1,15 @@
 # Deep Pool Learning
-### Building AI course project
-### Life & Energy saving AI based system for swimming pools
+#### Building AI course project
+#### Life & Energy saving AI based system for swimming pools
 
 ## Summary
 
-“Deep Pool Learning” is Life & Energy saving embedded system, based on AI/DeepLearning computer science methods for public pools, private pools and beyond. This is a 24 hours running, standalone system that can be installed on any pool in the world, providing safe and relaxed environment for all users, and in the same time saving energy and make healthier pools. It runs on two separete Neural Network based programs processing data from pool photos taken every couple of seconds. It activates set of alarms, calculate users count and operate filtration system. Alarm can be cell phone massage, audible, light or any other mean of alarming.
+“Deep Pool Learning” is Life & Energy saving embedded system, based on AI/DeepLearning computer science methods for public pools, private pools and beyond. This is a 24 hours running, standalone system, that can be installed on any pool in the world, providing safe and relaxed environment for all users and in the same time saving energy and making healthier pools. It runs on two separete Neural Network based programs processing data from pool photos taken every couple of seconds. It activates set of alarms, calculate users count and operate filtration system. Alarm can be cell phone massage, audible, light or any other mean of alarming.
 
 
 ## Background
 
-System is intended to be used by pool owners, parents, managers, pool attendants and pool maintenance technicians. It promotes pool safety and healthier environment. For managers and pool owners it provides significant savings and increases pool value in general. For pool attendants and private pool owners it provides more relaxed and safer environment to work and live in. For parents and owners it provides an alarm, if kids or pets fall in to the pool while they are not attending. For pool technicians in will provide less maintenance requirement, more reliable chemical balance and  healthier pools in general, where, in the same time, helping to comply with local rules and regulations requirements, such as USPH or other.
+System is intended to be used by pool owners, parents, managers, pool attendants and pool maintenance technicians. It promotes pool safety and healthier environment. For managers and pool owners it provides significant savings and increases pool value in general. For pool attendants and private pool owners it provides more relaxed and safer environment to work and live in. Specially for parents, it triggers an alarm if kids or pets fall in to the pool while they are not attending. For pool technicians it provides less maintenance requirement, more reliable chemical balance and  healthier pools in general, where in the same time helps to comply with local rules and regulations requirements, such as USPH or other.
 
 Deep Pool Learning system is used to:
 * Save lives
@@ -23,8 +23,8 @@ Deep Pool Learning system is used to:
 * Save on operational costs in general
 * Reduce pool treatment chemicals consumption
 * Help to comply with local rules and regulations
-* Can be used as monitor for social distancing in the pool
-* Adoptable system to comply with future operational changenges   
+* Help to monitor social distancing in the pools
+* Be an adoptable system to comply with future operational changenges   
 
 
 ## How is it used?
@@ -72,23 +72,17 @@ If you need to use links, here's an example:
 
 ## Challenges
 
-Since we are dealing with life safety of humans or pets, challenging will be to get system to be reliable and trustworthy. It will stil need an attendand on site, to be connected in some way with system alarms and to be as a quick resopnse team.
+Since we are dealing with life safety of humans or pets, challenging will be to get system to be reliable and trustworthy. It will stil need an attendand on site, to be connected in some way with system alarms and to be a first person in quick resopnse team.
 
 ## What next?
 
-But it could be extended to public beach areas and beyond. As we increase ability to collect larger amount of data and proccess it, larger area of monitoring may be implemented.
-
-With wright programmers, engineers and ethusiast project can only grow and be extended in many ways, and most importantly promote AI technologies. 
-
-Just imagine the importance of the project for the future of AI. It can gain great promotion and further developments on other fields in near future.
-It will be a challenge to get it working perfectly and reliably, but the revard for accomplishment is priceless.
-Imagine at the entrance of any public pool sign “You are protected by DeepPoolLearning AI”  
-AI being advertised for being responsible for having safest and healthiest pools in the world.
+It could be extended to public beach areas and beyond. As we increase ability to collect larger amount of data and proccess it, larger areas of monitoring may be implemented.
+With wright programmers, engineers and ethusiasts, project can only grow and be extended in many ways, and most importantly promote AI technologies. It can have a great impact on the future of AI, and gain further developments on other AI fields as well. It will be a challenge to get it working perfectly and reliably, but the revard for accomplishment is priceless. Imagine at the entrance of any public pool sign “This pool is protected by AI technologies”  and AI being advertised for being responsible for having safest and healthiest pools in the world.
 
 
 ## Acknowledgments
 
-* list here the sources of inspiration 
+Special thanks' to University of Helsinky and Reaktor for setting up their inspirational courses "Elements of AI" and "Building AI" 
 * do not use code, images, data etc. from others without permission
 * when you have permission to use other people's materials, always mention the original creator and the open source / Creative Commons licence they've used
   <br>For example: [Sleeping Cat on Her Back by Umberto Salvagnin](https://commons.wikimedia.org/wiki/File:Sleeping_cat_on_her_back.jpg#filelinks) / [CC BY 2.0](https://creativecommons.org/licenses/by/2.0)
