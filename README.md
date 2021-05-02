@@ -1,38 +1,38 @@
-# deep-pool-learning
-
-Building AI course project
-
 # Deep Pool Learning
-
-Life & Energy saving AI based system for swimming pools
+### Building AI course project
+### Life & Energy saving AI based system for swimming pools
 
 ## Summary
 
-“Deep Pool Learning” is Life & Energy saving embedded system, based on AI/DeepLearning computer science methods for public pools, private pools and beyond.
-Two separate Neural Network based programms are running in real time. With first, photos of the pool ledges are taken and processed to calculate the count of pool users and to finally obtain the output that will be used for cross-check with second program, to signal the alarm, and to operate pool filtration equipement accordingly.
-Second program is processing photos of total pool area and calculating its own count that will be cross-check with first program, and directly used to recognise potential drowning that will trigger another/different set of alarms.
-
+“Deep Pool Learning” is Life & Energy saving embedded system, based on AI/DeepLearning computer science methods for public pools, private pools and beyond. This is a 24 hours running, standalone system that can be installed on any pool in the world, providing safe and relaxed environment for all users, and in the same time saving energy and make healthier pools. It runs on two separete Neural Network based programs processing data from pool photos taken every couple of seconds. It activates set of alarms, calculate users count and operate filtration system. Alarm can be cell phone massage, audible, light or any other mean of alarming.
 
 
 ## Background
 
-This is 24 hours running standalone system that can be installed on any pool in the world, providing safe and relaxed environment for all users, and in the same time save energy and make healthier pools.
+System is intended to be used by pool owners, parents, managers, pool attendants and pool maintenance technicians. It promotes pool safety and healthier environment. For managers and pool owners it provides significant savings and increases pool value in general. For pool attendants and private pool owners it provides more relaxed and safer environment to work and live in. For parents and owners it provides an alarm, if kids or pets fall in to the pool while they are not attending. For pool technicians in will provide less maintenance requirement, more reliable chemical balance and  healthier pools in general, where, in the same time, helping to comply with local rules and regulations requirements, such as USPH or other.
 
 Deep Pool Learning system is used to:
 * Save lives
 * Save energy 
-* Save filtration and heating equpment
-* Reduce pool treatment chemicals consumption
 * Provide healthier pools
 * Provide relaxed environment
-* Reduce manning
 * Promote AI based technologies
-* Promote Green future solutions 
+* Promote Green future solutions
+* Stablize pool chemical balance
+* Save filtration and heating equpment
+* Save on operational costs in general
+* Reduce pool treatment chemicals consumption
+* Help to comply with local rules and regulations
+* Can be used as monitor for social distancing in the pool
+* Adoptable system to comply with future operational changenges   
 
 
 ## How is it used?
 
-System is intended to be used by pool owners, parents, managers, pool attendants and pool maintenance technicians. It will scientifically increase pool value in general, it will promote pool safety and healthier environment. For managers and pool owners it will provide significant savings. For pool attendants, if any, and private pool owners it will provide more relaxed and safe environment to work and live in. For pool technicians in will provide less maintenance requirement, more reliable chemical balance and  healthier pools in general, where, in the same time, helping to comply with local rules and regulations requirements, such as USPH or other.
+
+Two separate Neural Network based programms are running in real time. With first, photos of the pool ledges are taken and processed to calculate the count of pool users and to finally obtain the output that will be used for cross-check with second program, to signal the alarm, and to operate pool filtration equipement accordingly.
+Second program is processing photos of total pool area and calculating its own count that will be cross-check with first program, and directly used to recognise potential drowning that will trigger another/different set of alarms.
+
 
 Describe the process of using the solution. In what kind situations is the solution needed (environment, time, etc.)? Who are the users, what kinds of needs should be taken into account?
 
@@ -71,14 +71,19 @@ If you need to use links, here's an example:
 | Paragraph   | Text        |
 
 ## Challenges
-Since we are dealing with life safety of humans or pets, challenging will be to get system to be reliable and trustworthy. What does your project not solve? It’s important to understand that any technological solution will have its limitations.
-What does your project _not_ solve? Which limitations and ethical considerations should be taken into account when deploying a solution like this?
+
+Since we are dealing with life safety of humans or pets, challenging will be to get system to be reliable and trustworthy. It will stil need an attendand on site, to be connected in some way with system alarms and to be as a quick resopnse team.
 
 ## What next?
 
-Deep Pool Learning system will be used in private pools as well, to alarm parents and owners if kids or pet falls in the pool while they are not attending. Alarm can be cell phone massage, audible, light or nay other mean of alarming. It could be extended to public beach areas and beyond.
+But it could be extended to public beach areas and beyond. As we increase ability to collect larger amount of data and proccess it, larger area of monitoring may be implemented.
 
-How could your project grow and become something even more? What kind of skills, what kind of assistance would you  need to move on? 
+With wright programmers, engineers and ethusiast project can only grow and be extended in many ways, and most importantly promote AI technologies. 
+
+Just imagine the importance of the project for the future of AI. It can gain great promotion and further developments on other fields in near future.
+It will be a challenge to get it working perfectly and reliably, but the revard for accomplishment is priceless.
+Imagine at the entrance of any public pool sign “You are protected by DeepPoolLearning AI”  
+AI being advertised for being responsible for having safest and healthiest pools in the world.
 
 
 ## Acknowledgments
