@@ -27,38 +27,40 @@ Deep Pool Learning system is used to:
 * Be an adoptable system to comply with future operational changes   
 
 
-## How the Deep Pool Learning system works?
-
-### What is bather load, chemical balance and how the conventional pool systems work?
-
-
+## How the system works?
 
 ### Deep Pool Learning as software solution for modern pools and program logic explained
+Two separate Neural Network based programs are running in real time. 
+With first program, that was previously trained, photos of the pool ledges are taken and processed to calculate the count of the pool users. The count is program output that will be used for cross-check with second program, to signal the first alarm, and to operate pool filtration equipment accordingly.
+Second program is processing photos of total pool area and calculating its own count that will be cross-check with first program, and is trained to directly recognize potential drowning that will trigger another/different set of alarms.
 
-Two separate Neural Network based programs are running in real time. With first, photos of the pool ledges are taken and processed to calculate the count of pool users and to finally obtain the output that will be used for cross-check with second program, to signal the alarm, and to operate pool filtration equipment accordingly.
-Second program is processing photos of total pool area and calculating its own count that will be cross-check with first program, and directly used to recognize potential drowning that will trigger another/different set of alarms.
-Idea is based on that everyone needs to go inside of the pool from its ledge and get out of it from the same ledge. This can be used as a big advantage in programming/training the pool software and system technology. In this way it will be easier to count the number of the persons using the pool at any moment and do the cross-check count for entire pool area surface in real time, thus recognizing the total count of user and recognizing any mismatch. 
+Idea is based on the fact that everyone needs to get inside and out of the pool from its ledge. This can be used as a big advantage in programming/training the pool software and system technology. In this way it will be easier to count the number of the persons using the pool at any moment do the cross-check count for entire pool area surface in real time, thus recognizing the total count of user and recognizing any mismatch. 
 
-Secondary safe check will be done by training the system to recognize actual drowning inside pool surface area.
-System is imagined working in a way that it will run a count in real time, which will be a main working parameter. There will be a photo camera that will be taking, probably in B&W, photos of the area, do the count and initiate timer in case of discrepancy, or be deleted, followed by a new photo and the same count and the same process. Other cameras will be designed to observe the ledges of the pool and do the separate counts which will be later part of the sum, and part of the Main program running.
-In steps this can be represented as:
-1.	Take a photo or photos of the ledge area
-2.	Do the first sum count
-3.	Take a photo of pool surface
-4.	Do the second sum count
-5.	Do the cross-check calculation
-6.	If discrepancy in count calculated:
-a.	Trigger timer if discrepancy calculated
-b.	Trigger alarm after timer runs out
-c.	Save photos in separate memory for preservation
-7.	If no discrepancy calculated
-a.	Delete the photo
-8.	Repeat the process from beginning
+When camera/s of the first program takes the photo and is procseesed in our NN, in case of discrepancy between the count of the two running programs timer is initiatetd that will set off the alarm if exceeded. Othervised that photo is deleted, followed by a new photo and the same count and the same process.
+SImilar logic is following the second NN that is trained to recognise actual drowning and obtain separate count. Accordingly, it deletes photo and continues to process a new photo if nothing is unusual.
 
-Additionally, there can be submerged water cameras on the bottom or cameras behind side glass where applicable.
-Discrepancy in count, after certain time count, will trigger alarm. Alarm can be visual, audible, application-based alarm on cell phone or wristwatch, massage, or any other means of alarming.
+Complete program, consisted of two NNs can be represented in these logic steps:
+   1.	First camera/s takes a photo of the ledge area
+   2.	Run the photo through first Neural Network
+   3.	Output the users count. Value "X"
+      a. Send the value "X" to embedded system (PLC or MicroController)
+   4.	Second camera takes a photo of pool surface
+   5.	Output the second count. Value "Y"
+   	a. Output alarm if NN recognise drowning
+      b. Save photos in dedicated memory
+   6.	Do the cross-check calculation X-Y. Value "sum"
+   7.	If sum =! 0:
+      a.	Trigger pre-set timer count
+      b.	Trigger alarm after timer runs out
+      c.	Save photos in dedicated memory
+   8.	If sum == 0:
+      a.	Delete the photos
+   9.	Repeat the process from the beginning
 
-According to this information (count), pumps flow will be adjusted, and chemical balance regulation system will be working accordingly. As the flow of the water recirculated by the pumps through the pool filtration system needs to be in accordance with the number of the people using the system (USPH requires minimum of 5 gallons per minute for every person), inverter installed on the pump will adjust pump speed accordingly to the count provided by the running software. This will scientifically reduce energy consumption of the filtration system allowing it not to run in full capacity all day, especially during the night, where pool pumps must continue to run, while in the same time adjusting the chemical balance much smoothly.
+Additionally, there can be a submerged water cameras on the bottom or cameras behind side glass where applicable.
+
+### What is bather load, chemical balance and how the conventional pool systems work?
+According to the count information (value "X" obtained in step 3.), pumps flow will be adjusted, and chemical balance regulation system will be working accordingly. As the flow of the water is recirculated by the pumps through the pool filtration system needs to be in accordance with the number of the people using the system (USPH requires minimum of 5 gallons per minute for every person), inverter installed on the pump will adjust pump speed accordingly to the count provided by the running software. This will scientifically reduce energy consumption of the filtration system allowing it not to run in full capacity all day, especially during the night, where pool pumps must continue to run, while in the same time adjusting the chemical balance much smoothly.
 
 
 <img src="https://www.wowamazing.com/wp-content/uploads/2015/08/ce95100000000000.jpg" width="400">
