@@ -29,7 +29,7 @@ Deep Pool Learning system is used to:
 
 ## How the system works?
 
-### Deep Pool Learning as software solution for modern pools and program logic explained
+### Deep Pool Learning as software solution for modern pools
 Two separate Neural Network based programs are running in real time. 
 With first program, that was previously trained, photos of the pool ledges are taken and processed to calculate the count of the pool users. The count is program output that will be used for cross-check with second program, to signal the first alarm, and to operate pool filtration equipment accordingly.
 Second program is processing photos of total pool area and calculating its own count that will be cross-check with first program, and is trained to directly recognize potential drowning that will trigger another/different set of alarms.
@@ -43,18 +43,18 @@ Complete program, consisted of two NNs can be represented in these logic steps:
    1.	First camera/s takes a photo of the ledge area
    2.	Run the photo through first Neural Network
    3.	Output the users count. Value "X"
-      a. Send the value "X" to embedded system (PLC or MicroController)
+      3a. Send the value "X" to embedded system (PLC or MicroController)
    4.	Second camera takes a photo of pool surface
    5.	Output the second count. Value "Y"
-   	a. Output alarm if NN recognise drowning
-      b. Save photos in dedicated memory
+   	5a. Output alarm if NN recognise drowning
+      5b. Save photos in dedicated memory
    6.	Do the cross-check calculation X-Y. Value "sum"
    7.	If sum =! 0:
-      a.	Trigger pre-set timer count
-      b.	Trigger alarm after timer runs out
-      c.	Save photos in dedicated memory
+      7a.	Trigger pre-set timer count
+      7b.	Trigger alarm after timer runs out
+      7c.	Save photos in dedicated memory
    8.	If sum == 0:
-      a.	Delete the photos
+      8a.	Delete the photos
    9.	Repeat the process from the beginning
 
 Additionally, there can be a submerged water cameras on the bottom or cameras behind side glass where applicable.
@@ -65,21 +65,60 @@ According to the count information (value "X" obtained in step 3.), pumps flow w
 
 <img src="https://www.wowamazing.com/wp-content/uploads/2015/08/ce95100000000000.jpg" width="400">
 
-This is how you create code examples:
+
 ```
+# Program writen below is general idea of the DeepPoolLearning python program
+# Two CNN running separatly are procesing images from two cameras in real time
+# Main program calculates differenace between two information and outputs alarms
+
+import numpy as np
+import RPi.GPIO as GPIO
+import time
+
 def main():
-   countries = ['Denmark', 'Finland', 'Iceland', 'Norway', 'Sweden']
-   pop = [5615000, 5439000, 324000, 5080000, 9609000]   # not actually needed in this exercise...
-   fishers = [1891, 2652, 3800, 11611, 1757]
+   sum = X - Y
+   if sum != 0:
+      return Alarm_Out(1)
+   if Z is true:
+      return Alarm_Out(1)  
+   return Inverter_Out(X)   
 
-   totPop = sum(pop)
-   totFish = sum(fishers)
-
-   # write your solution here
-
-   for i in range(len(countries)):
-      print("%s %.2f%%" % (countries[i], 100.0))    # current just prints 100%
-
+def pool_ledge(image1):
+   # process first image through forward propagation of first Convolutional Neural Network
+   # and return users count (people in the pool)
+   return X
+   
+def pool_area(image2):
+   # process second image through forward propagation of second Convolutional Neural Network
+   # and return users count as value Y (people in the pool)
+   # and returns value Z if CNN recognises drowning inside pool area image
+   
+   return Y 
+   return Z
+   
+def Inverter_Out(value):
+   # Define analog output on the Raspery Pi
+   # Analog out is matching count of pool users obtained by CNN
+   # And operates Filtration system inverters accordingly
+   
+   out_pin = 18
+   GPIO.setmode(GPIO.BCM)
+   GPIO.setup(out_pin, GPIO.OUT)  
+   pwm_out = GPIO.PWM(out_pin, 500)
+   pwm_out.start(value)
+   
+def Alarm_Out(alarm):
+   # Takes as input alarm values from main program
+   # Outputs alarm on one of the Raspbery pins as digital output
+   
+   alarm_pin = 15
+   GPIO.setmode(GPIO.BCM)
+   GPIO.setup(alarm_pin, GPIO.OUT)
+   if alarm == 1:
+      GPIO.output(alarm_pin1, True)
+   else:
+      GPIO.output(alarm_pin1, False)
+      
 main()
 ```
 
