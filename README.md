@@ -4,7 +4,7 @@
 
 ## Summary
 
-“Deep Pool Learning” is Life & Energy saving embedded system, based on AI/DeepLearning computer science methods for public pools, private pools and beyond. This is 24 hours running, standalone system, that can be installed on any pool in the world, providing safe and relaxed environment for all users and in the same time saving energy and making healthier pools. It runs on two separate Neural Network based programs processing data from pool photos taken every couple of seconds. It activates set of alarms, calculate users count and operate filtration system. Alarm can be cell phone massage, audible, light or any other mean of alarming.
+“Deep Pool Learning” is Life & Energy saving embedded system, based on AI/DeepLearning computer science methods for public pools, private pools and beyond. This is 24 hours running, standalone system, that can be installed on any pool in the world, providing safe and relaxed environment for all users and in the same time saving energy and making healthier pools. It runs on two separate Convolutional Neural Network based image processing programs and the main program. Deep Pool Learning main program will activate set of alarms, calculate users count and learn to optimally operate filtration system. Alarm can be cell phone massage, audible, light or any other mean of alarming.
 
 
 ## Background
@@ -43,24 +43,35 @@ Complete program, consisted of two NNs can be represented in these logic steps:
    * 1.	First camera/s takes a photo of the ledge area
    * 2.	Run the photo through first Neural Network
    * 3.	Output the users count. Value "X"
-      * 3a Send the value "X" to embedded system (PLC or MicroController)
+      * 3a. Send the value "X" to embedded system (PLC or MicroController)
    * 4.	Second camera takes a photo of pool surface
    * 5.	Output the second count. Value "Y"
-   	*5a Output alarm if NN recognise drowning
-      5*b Save photos in dedicated memory
-   *6.	Do the cross-check calculation X-Y. Value "sum"
-   *7.	If sum =! 0:
-      *7a	Trigger pre-set timer count
-      *7b	Trigger alarm after timer runs out
-      *7c	Save photos in dedicated memory
+   	  * 5a. Output alarm if NN recognise drowning
+      * 5b. Save photos in dedicated memory
+   * 6.	Do the cross-check calculation X-Y. Value "sum"
+   * 7.	If sum =! 0:
+      * 7a.	Trigger pre-set timer count
+      * 7b.	Trigger alarm after timer runs out
+      * 7c.	Save photos in dedicated memory
    *8.	If sum == 0:
-      *8a	Delete the photos
+      * 8a.	Delete the photos
    *9.	Repeat the process from the beginning
 
 Additionally, there can be a submerged water cameras on the bottom or cameras behind side glass where applicable.
 
 ### What is bather load, chemical balance and how the conventional pool systems work?
-According to the count information (value "X" obtained in step 3.), pumps flow will be adjusted, and chemical balance regulation system will be working accordingly. As the flow of the water is recirculated by the pumps through the pool filtration system needs to be in accordance with the number of the people using the system (USPH requires minimum of 5 gallons per minute for every person), inverter installed on the pump will adjust pump speed accordingly to the count provided by the running software. This will scientifically reduce energy consumption of the filtration system allowing it not to run in full capacity all day, especially during the night, where pool pumps must continue to run, while in the same time adjusting the chemical balance much smoothly.
+Bather load is nothing but the maximum number of the people that can use the pool in the same time. In our program, bather load will be the same as the value "X" or "Y". Bather load is tightly related with the quality of the pool water and is given by the Departments of Health or similar institutions. For example, for Cruise Ship pools, USPH is the regulatory body that states in its VSP manual that flow of the water through filtration system must be 5 gallons per minute for every person. With that information we can write simple formula to calculate Bather Load for any specific pool:
+
+BL = Water Flow Through Filtration System / 5 
+
+Filtration pump flow in gal/min divided by 5 will give us the Bather Load number (integer). 
+
+Conventional pools are running with filtration pump on maximum power rate at all time, which cannot be insurance to avoid the flow drop if filters get dirty. So, the BL is pre-calculated value that can change in time, which means for safety it will be lower than the actual maximum capacity of our filtration system. This is where Deep Pool Learning comes to rescue.
+From this point of view, we can see that if we know at all time how many people are using the pool and what is required flow of the of our filtration equipment at that moment, we can more successfully and reliably run our system. When the pool is not as crowdy, we can reduce speed of filtration scientifically and save energy even more. Especially during the nights or weekends, since pool equipment is nonstop running at all time even if pools are closed. 
+Closely connected to the flow of the filtration system is regulation of Chemical Balance of the pool. In short, it means that by knowing number of users and the flow we can obtain smoother curve of the pool chemical values (pH, Cl, Br, etc.) and not overdose the pool. In time we can have a AI program to learn the optimal solutions at all time.
+
+### Deep Pool AI
+So we can say that our AI program can learn to run the pool system efficiently and reliably just by knowing the BL (count, value "X" obtained in step 3.), pumps flow and values of the Cl an pH.
 
 
 <img src="https://www.wowamazing.com/wp-content/uploads/2015/08/ce95100000000000.jpg" width="400">
