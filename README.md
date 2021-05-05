@@ -4,7 +4,7 @@
 
 ## Summary
 
-“Deep Pool Learning” is Life & Energy saving embedded system, based on AI/DeepLearning computer science methods for public pools, private pools and beyond. This is 24 hours running, standalone system, that can be installed on any pool in the world, providing safe and relaxed environment for all users and in the same time saving energy and making healthier pools. It runs on two separate Convolutional Neural Network based image processing programs and the main program. Deep Pool Learning main program will activate set of alarms, calculate users count and learn to optimally operate filtration system. Alarm can be cell phone massage, audible, light or any other mean of alarming.
+“Deep Pool Learning” is Life & Energy saving embedded system, based on AI/DeepLearning computer science methods for public pools, private pools and beyond. This is 24 hours running, standalone system, that can be installed on any pool in the world, providing safe and relaxed environment for all users and in the same time saving energy and making healthier pools. It runs two separate image processing Convolutional Neural Networks and the main program. Deep Pool Learning main program will activate set of alarms, calculate users count and learn to optimally operate filtration system. Alarm can be cell phone massage, audible, light or any other mean of alarming.
 
 
 ## Background
@@ -30,32 +30,35 @@ Deep Pool Learning system is used to:
 ## How the system works?
 
 ### Deep Pool Learning as software solution for modern pools
-Two separate Neural Network based programs are running in real time. 
-With first program, that was previously trained, photos of the pool ledges are taken and processed to calculate the count of the pool users. The count is program output that will be used for cross-check with second program, to signal the first alarm, and to operate pool filtration equipment accordingly.
-Second program is processing photos of total pool area and calculating its own count that will be cross-check with first program, and is trained to directly recognize potential drowning that will trigger another/different set of alarms.
+Two separate C. Neural Networks are running in real time to obtain inputs for the main program. 
+With first, previously trained NN, photos of the pool ledges are taken and processed to calculate the count of the pool users. It returns the count that will be used for cross-check with second NN, to signal the alarm, and to operate pool filtration equipment accordingly.
+Second previously trained NN is processing photos of total pool area and returning its own count that will be cross-check with first NN count, and is trained to directly recognize potential drowning that will trigger another/different set of alarms within main program.
 
-Idea is based on the fact that everyone needs to get inside and out of the pool from its ledge. This can be used as a big advantage in programming/training the pool software and system technology. In this way it will be easier to count the number of the persons using the pool at any moment do the cross-check count for entire pool area surface in real time, thus recognizing the total count of user and recognizing any mismatch. 
+Idea is based on the fact that everyone needs to get inside and out of the pool from its ledge. This can be used as a big advantage in programming/training the pool software and system technology. In this way it will be easier to count the number of the persons using the pool at any moment, do the cross-check count for entire pool area surface in real time, and thus recognizing the total count of user and recognizing any mismatch. 
 
-When camera/s of the first program takes the photo and is procseesed in our NN, in case of discrepancy between the count of the two running programs timer is initiatetd that will set off the alarm if exceeded. Othervised that photo is deleted, followed by a new photo and the same count and the same process.
+After camera of the first program takes the photo and runs it in our NN, in case of discrepancy between the count of the two running programs timer is initiatetd that will set off the alarm if exceeded. Othervised that photo is deleted, followed by a new photo and the same count and the same process.
 SImilar logic is following the second NN that is trained to recognise actual drowning and obtain separate count. Accordingly, it deletes photo and continues to process a new photo if nothing is unusual.
+
+Main program is processing all the information given from two NN's, analog and digital inputs from pool filtration system, and finally optimizes the pool system.
 
 Complete program, consisted of two NNs can be represented in these logic steps:
    * 1.	First camera/s takes a photo of the ledge area
    * 2.	Run the photo through first Neural Network
    * 3.	Output the users count. Value "X"
-      * 3a. Send the value "X" to embedded system (PLC or MicroController)
+      * a. Send the value "X" to embedded system (PLC or MicroController)
    * 4.	Second camera takes a photo of pool surface
    * 5.	Output the second count. Value "Y"
-   	  * 5a. Output alarm if NN recognise drowning
-      * 5b. Save photos in dedicated memory
+   	  * a. Output alarm if NN recognise drowning
+      * b. Save photos in dedicated memory
    * 6.	Do the cross-check calculation X-Y. Value "sum"
    * 7.	If sum =! 0:
-      * 7a.	Trigger pre-set timer count
-      * 7b.	Trigger alarm after timer runs out
-      * 7c.	Save photos in dedicated memory
-   *8.	If sum == 0:
-      * 8a.	Delete the photos
-   *9.	Repeat the process from the beginning
+      * a.	Trigger pre-set timer count
+      * b.	Trigger alarm after timer runs out
+      * c.	Save photos in dedicated memory
+   * 8.	If sum == 0:
+      * a.	Delete the photos
+   * 9.	Repeat the process from the beginning
+   * 10. Main program runs optimization according to the inputs
 
 Additionally, there can be a submerged water cameras on the bottom or cameras behind side glass where applicable.
 
@@ -71,7 +74,7 @@ From this point of view, we can see that if we know at all time how many people 
 Closely connected to the flow of the filtration system is regulation of Chemical Balance of the pool. In short, it means that by knowing number of users and the flow we can obtain smoother curve of the pool chemical values (pH, Cl, Br, etc.) and not overdose the pool. In time we can have a AI program to learn the optimal solutions at all time.
 
 ### Deep Pool AI
-So we can say that our AI program can learn to run the pool system efficiently and reliably just by knowing the BL (count, value "X" obtained in step 3.), pumps flow and values of the Cl an pH.
+So we can say that our AI program can learn to run the pool system efficiently and reliably just by knowing at any given time the BL (count, value "X" obtained in step 3.), pumps flow and Cl/pH.
 
 
 <img src="https://www.wowamazing.com/wp-content/uploads/2015/08/ce95100000000000.jpg" width="400">
@@ -79,13 +82,16 @@ So we can say that our AI program can learn to run the pool system efficiently a
 
 ```
 # Program writen below is a general idea of the DeepPoolLearning python program.
-# Two CNN running separatly are procesing images from two cameras in real time
-# and are returning users count. Secon CNN additionaly recognises possible actual drowning.
-# Main program calculates differenace between two information, gives output to Inverters and outputs alarms.
+# Two CNN are procesing images from two cameras in real time and are returning users count. 
+# Second CNN additionaly recognises possible actual drowning.
+# Main program calculates differenace between information, gives output to Inverters (optimizes) and outputs alarms.
 
 import numpy as np
 import RPi.GPIO as GPIO
 import time
+
+image1 = input('///')
+image2 = input('///')
 
 def main(X, Y, Z):
    sum = X - Y
