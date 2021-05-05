@@ -40,22 +40,22 @@ When camera/s of the first program takes the photo and is procseesed in our NN, 
 SImilar logic is following the second NN that is trained to recognise actual drowning and obtain separate count. Accordingly, it deletes photo and continues to process a new photo if nothing is unusual.
 
 Complete program, consisted of two NNs can be represented in these logic steps:
-   1.	First camera/s takes a photo of the ledge area
-   2.	Run the photo through first Neural Network
-   3.	Output the users count. Value "X"
-      3a Send the value "X" to embedded system (PLC or MicroController)
-   4.	Second camera takes a photo of pool surface
-   5.	Output the second count. Value "Y"
-   	5a Output alarm if NN recognise drowning
-      5b Save photos in dedicated memory
-   6.	Do the cross-check calculation X-Y. Value "sum"
-   7.	If sum =! 0:
-      7a	Trigger pre-set timer count
-      7b	Trigger alarm after timer runs out
-      7c	Save photos in dedicated memory
-   8.	If sum == 0:
-      8a	Delete the photos
-   9.	Repeat the process from the beginning
+   * 1.	First camera/s takes a photo of the ledge area
+   * 2.	Run the photo through first Neural Network
+   * 3.	Output the users count. Value "X"
+      * 3a Send the value "X" to embedded system (PLC or MicroController)
+   * 4.	Second camera takes a photo of pool surface
+   * 5.	Output the second count. Value "Y"
+   	*5a Output alarm if NN recognise drowning
+      5*b Save photos in dedicated memory
+   *6.	Do the cross-check calculation X-Y. Value "sum"
+   *7.	If sum =! 0:
+      *7a	Trigger pre-set timer count
+      *7b	Trigger alarm after timer runs out
+      *7c	Save photos in dedicated memory
+   *8.	If sum == 0:
+      *8a	Delete the photos
+   *9.	Repeat the process from the beginning
 
 Additionally, there can be a submerged water cameras on the bottom or cameras behind side glass where applicable.
 
@@ -67,15 +67,16 @@ According to the count information (value "X" obtained in step 3.), pumps flow w
 
 
 ```
-# Program writen below is general idea of the DeepPoolLearning python program
+# Program writen below is a general idea of the DeepPoolLearning python program.
 # Two CNN running separatly are procesing images from two cameras in real time
-# Main program calculates differenace between two information and outputs alarms
+# and are returning users count. Secon CNN additionaly recognises possible actual drowning.
+# Main program calculates differenace between two information, gives output to Inverters and outputs alarms.
 
 import numpy as np
 import RPi.GPIO as GPIO
 import time
 
-def main():
+def main(X, Y, Z):
    sum = X - Y
    if sum != 0:
       return Alarm_Out(1)
@@ -119,19 +120,8 @@ def Alarm_Out(alarm):
    else:
       GPIO.output(alarm_pin1, False)
       
-main()
+main(X, Y, Z)
 ```
-
-
-## Data sources and AI methods
-Where does your data come from? Do you collect it yourself or do you use data collected by someone else?
-If you need to use links, here's an example:
-[Twitter API](https://developer.twitter.com/en/docs)
-
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
 
 ## Challenges
 
