@@ -43,18 +43,18 @@ Complete program, consisted of two NNs can be represented in these logic steps:
    1.	First camera/s takes a photo of the ledge area
    2.	Run the photo through first Neural Network
    3.	Output the users count. Value "X"
-      3a. Send the value "X" to embedded system (PLC or MicroController)
+      3a Send the value "X" to embedded system (PLC or MicroController)
    4.	Second camera takes a photo of pool surface
    5.	Output the second count. Value "Y"
-   	5a. Output alarm if NN recognise drowning
-      5b. Save photos in dedicated memory
+   	5a Output alarm if NN recognise drowning
+      5b Save photos in dedicated memory
    6.	Do the cross-check calculation X-Y. Value "sum"
    7.	If sum =! 0:
-      7a.	Trigger pre-set timer count
-      7b.	Trigger alarm after timer runs out
-      7c.	Save photos in dedicated memory
+      7a	Trigger pre-set timer count
+      7b	Trigger alarm after timer runs out
+      7c	Save photos in dedicated memory
    8.	If sum == 0:
-      8a.	Delete the photos
+      8a	Delete the photos
    9.	Repeat the process from the beginning
 
 Additionally, there can be a submerged water cameras on the bottom or cameras behind side glass where applicable.
