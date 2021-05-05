@@ -62,7 +62,7 @@ Complete program, consisted of two NNs can be represented in these logic steps:
 
 Additionally, there can be a submerged water cameras on the bottom or cameras behind side glass where applicable.
 
-### What is bather load, chemical balance and how the conventional pool systems work?
+### What is bather load, chemical balance and how the conventional pool systems works?
 Bather load is nothing but the maximum number of the people that can use the pool in the same time. In our program, bather load will be the same as the value "X" or "Y". Bather load is tightly related with the quality of the pool water and is given by the Departments of Health or similar institutions. For example, for Cruise Ship pools, USPH is the regulatory body that states in its VSP manual that flow of the water through filtration system must be 5 gallons per minute for every person. With that information we can write simple formula to calculate Bather Load for any specific pool:
 
 BL = Water Flow Through Filtration System / 5 
